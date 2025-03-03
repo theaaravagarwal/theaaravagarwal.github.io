@@ -75,5 +75,175 @@ function createShootingStar() {
     shootingStar.style.boxShadow = '0 0 10px 2px rgba(255, 255, 255, 0.7)';
     shootingStar.style.transform = `rotate(${angle}deg)`;
     
-    // Add trail with pseudo-
+    // Add trail with pseudo-element
+    shootingStar.style.position = 'relative';
+    
+    // Animation
+    shootingStar.animate(
+        [
+            { transform: 'translateX(0) translateY(0) rotate(' + angle + 'deg)', opacity: 1 },
+            { transform: 'translateX(100px) translateY(100px) rotate(' + angle + 'deg)', opacity: 0 }
+        ],
+        {
+            duration: 1000,
+            easing: 'ease-out'
+        }
+    );
+    
+    starsContainer.appendChild(shootingStar);
+    
+    // Remove after animation
+    setTimeout(() => {
+        shootingStar.remove();
+    }, 1000);
+}
+
+// Initialize typed text effect
+function initTypedText() {
+    const typedTextElement = document.querySelector('.typed-text');
+    const textArray = ['Web Developer', 'Designer', 'Freelancer', 'Photographer'];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    
+    function type() {
+        const currentText = textArray[textIndex];
+        
+        if (isDeleting) {
+            typedTextElement.textContent = currentText.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typedTextElement.textContent = currentText.substring(0, charIndex + 1);
+            charIndex++;
+        }
+        
+        // Speed control
+        let typeSpeed = isDeleting ? 50 : 150;
+        
+        // If complete, start deleting
+        if (!isDeleting && charIndex === currentText.length) {
+            isDeleting = true;
+            typeSpeed = 1000; // Pause at end
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % textArray.length;
+            typeSpeed = 500; // Pause before typing next
+        }
+        
+        setTimeout(type, typeSpeed);
+    }
+    
+    // Start typing effect
+    setTimeout(type, 1000);
+}
+
+// Mobile navigation toggle
+function initMobileNav() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+}
+
+// Scroll effects
+function initScrollEffects() {
+    const header = document.querySelector('header');
+    const sections = document.querySelectorAll('section');
+    
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        // Highlight active nav link
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollY >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// Project filtering
+function initProjectFilters() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            const filter = btn.getAttribute('data-filter');
+            
+            // Filter projects
+            projectCards.forEach(card => {
+                if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+}
+
+// Contact form handling
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server
+            // For now, we'll just show a success message
+            const formData = new FormData(contactForm);
+            let formValues = {};
+            
+            formData.forEach((value, key) => {
+                formValues[key] = value;
+            });
+            
+            console.log('Form submitted:', formValues);
+            
+            // Show success message
+            contactForm.innerHTML = '<div class="success-message"><h3>Thank you!</h3><p>Your message has been sent successfully. I\'ll get back to you soon.</p></div>';
+        });
+    }
 }
