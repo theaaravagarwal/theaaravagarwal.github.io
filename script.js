@@ -1,33 +1,21 @@
-// Configuration object - Edit this to customize your portfolio
 const CONFIG = {
-    // Personal Information
-    name: "John Doe",
+    name: "Aarav Agarwal",
     title: "Full Stack Developer",
-    email: "john.doe@example.com",
-    phone: "+1 234 567 890",
-    location: "San Francisco, CA",
-    
-    // Professional titles for typing animation
+    email: "theaaravagarwal@gmail.com",
+    phone: "+1 408 505 9054",
+    location: "Sunnyvale, CA",
     typingTexts: ["Full Stack Developer", "UI/UX Designer", "Problem Solver", "Tech Enthusiast"],
-    
-    // About section
     about: {
         bio: "I'm a passionate developer with 5+ years of experience creating web applications. I specialize in JavaScript, React, and Node.js, and I love building intuitive user interfaces and robust backend systems.",
         background: "My journey began at University of Technology where I studied Computer Science. Since then, I've worked with startups and established companies to deliver high-quality software solutions.",
         resumeLink: "https://example.com/resume.pdf"
     },
-    
-    // Social links
     socials: {
-        github: "https://github.com/yourusername",
-        linkedin: "https://linkedin.com/in/yourusername",
-        twitter: "https://twitter.com/yourusername",
-        instagram: "https://instagram.com/yourusername",
-        codepen: "https://codepen.io/yourusername",
-        dribbble: "https://dribbble.com/yourusername"
+        github: "https://github.com/theaaravagarwal",
+        linkedin: "https://linkedin.com/in/theaaravagarwal",
+        twitter: "https://twitter.com/aaaaaaagarwal",
+        codeforces: "https://codeforces.com/profile/SiegeOnSticks",
     },
-    
-    // Skills
     skills: {
         frontend: [
             { name: "HTML/CSS", level: 95 },
@@ -37,10 +25,9 @@ const CONFIG = {
             { name: "Sass/SCSS", level: 85 }
         ],
         backend: [
-            { name: "Node.js", level: 85 },
-            { name: "Express", level: 80 },
-            { name: "Python", level: 75 },
-            { name: "MongoDB", level: 80 },
+            { name: "Java", level: 85 },
+            { name: "C++", level: 80 },
+            { name: "Node.js", level: 80 },
             { name: "SQL", level: 75 }
         ],
         tools: [
@@ -60,7 +47,7 @@ const CONFIG = {
             image: "https://via.placeholder.com/600x400",
             technologies: ["React", "Node.js", "MongoDB", "Stripe API"],
             liveLink: "https://project1.example.com",
-            sourceLink: "https://github.com/yourusername/project1",
+            sourceLink: "https://github.com/theaaravagarwal",
             category: "web"
         },
         {
@@ -611,7 +598,7 @@ function initContactForm() {
         console.log('Form submitted:', formValues);
         
         // Show success message
-        contactForm.innerHTML = '<div class="success-message"><h3>Thank you!</h3><p>Your message has been sent successfully. I\'ll get back to you soon.</p></div>';
+        contactForm.innerHTML = '<div class="success-message"><h3>Thank you!</h3><p>ymessage has been sent successfully. I\'ll get back to you soon.</p></div>';
     });
 }
 
