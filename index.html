@@ -3,187 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional portfolio showcasing my work and skills">
-    <title>Portfolio</title>
+    <title>Your Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div id="stars-container"></div>
-    
-    <header>
-        <nav>
-            <div class="logo">Portfolio</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2 id="nav-name">Your Name</h2>
             </div>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h1>Hi, I'm <span class="user-name highlight">Portfolio</span></h1>
-                <h2>I'm a <span class="typed-text"></span></h2>
-                <p>Welcome to my portfolio website</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn primary">View My Work</a>
-                    <a href="#contact" class="btn secondary">Contact Me</a>
-                </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <section id="about" class="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <div class="about-image">
-                        <div class="image-placeholder">
-                            <!-- Replace with your image -->
-                            <img src="https://via.placeholder.com/300" alt="Profile Photo">
+    <section class="hero">
+        <div class="hero-content">
+            <h1 id="hero-name">Hi, I'm Your Name</h1>
+            <p id="hero-description">Developer passionate about creating cool projects in C++, Java, Python, JavaScript and more</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p id="about-description">
+                        I'm a developer who loves building projects across multiple languages and technologies. 
+                        From systems programming in C++ to web development with JavaScript, I enjoy exploring 
+                        different domains and creating solutions to interesting problems.
+                    </p>
+                    <div class="tech-stack">
+                        <h3>Technologies I work with:</h3>
+                        <div class="tech-grid" id="tech-stack">
+                            <!-- Tech stack will be populated from config -->
                         </div>
-                    </div>
-                    <div class="about-text">
-                        <p>Hello! I'm a passionate developer with experience in web development.</p>
-                        <p>My journey began with a curiosity for technology and has evolved into a career.</p>
-                        <div class="personal-info">
-                            <div class="info-item">
-                                <span>Name:</span>
-                                <span class="info-name">Aarav Agarwal</span>
-                            </div>
-                            <div class="info-item">
-                                <span>Email:</span>
-                                <span class="info-email">your.email@example.com</span>
-                            </div>
-                            <div class="info-item">
-                                <span>Location:</span>
-                                <span class="info-location">Your Location</span>
-                            </div>
-                            <div class="info-item">
-                                <span>Availability:</span>
-                                <span>Available for freelance</span>
-                            </div>
-                        </div>
-                        <a href="#" class="btn primary resume-link">Download CV</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">My Projects</h2>
-                <div class="project-filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="web">Web</button>
-                    <button class="filter-btn" data-filter="app">App</button>
-                    <button class="filter-btn" data-filter="design">Design</button>
-                </div>
-                <div class="projects-grid">
-                    <!-- Projects will be dynamically generated here -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="cpp">C++</button>
+                <button class="filter-btn" data-filter="java">Java</button>
+                <button class="filter-btn" data-filter="python">Python</button>
+                <button class="filter-btn" data-filter="javascript">JavaScript</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Loading projects...</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills" class="skills">
-            <div class="container">
-                <h2 class="section-title">My Skills</h2>
-                <div class="skills-container">
-                    <!-- Skills will be dynamically generated here -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-content">
+                <p>Interested in collaborating or just want to say hi?</p>
+                <div class="contact-links">
+                    <a href="#" id="github-link" class="contact-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="#" id="email-link" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email</span>
+                    </a>
+                    <a href="#" id="linkedin-link" class="contact-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="details">
-                                <h3>Email</h3>
-                                <p class="contact-email">your.email@example.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="details">
-                                <h3>Phone</h3>
-                                <p class="contact-phone">+1 234 567 890</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="details">
-                                <h3>Location</h3>
-                                <p class="contact-location">Your City, Country</p>
-                            </div>
-                        </div>
-                        <div class="social-links">
-                            <a href="#" class="social-github" aria-label="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="#" class="social-linkedin" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="#" class="social-twitter" aria-label="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-instagram" aria-label="Instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-codepen" aria-label="CodePen">
-                                <i class="fab fa-codepen"></i>
-                            </a>
-                            <a href="#" class="social-dribbble" aria-label="Dribbble">
-                                <i class="fab fa-dribbble"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="contact-form">
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" placeholder="Aarav Agarwal" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                            </div>
-                            <div class="form-group">
-                                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn primary">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
-            <p class="footer-copyright">&copy; 2023 Aarav Agarwal. All Rights Reserved.</p>
+            <p>&copy; 2024 <span id="footer-name">Your Name</span>. Built with ❤️</p>
         </div>
     </footer>
 
