@@ -24,10 +24,75 @@ function useDefaultConfig() {
     config = {
         personal: {
             name: "Your Name",
-            description: "Developer passionate about creating cool projects",
+            role: "Backend Engineer & Competitive Programmer",
+            description: "I build reliable services and tackle complex problems end to end.",
             email: "your.email@example.com",
             github: "yourusername",
-            linkedin: "yourlinkedin"
+            linkedin: "yourlinkedin",
+            heroHighlights: ["Distributed Systems", "API Design", "Observability"]
+        },
+        about: {
+            description: "I'm a backend-focused developer who loves turning business needs into resilient services.",
+            highlights: [
+                "Architect scalable APIs and data pipelines that can grow with products",
+                "Instrument systems so teams stay observable under real-world traffic",
+                "Apply algorithmic thinking to production bottlenecks and new features"
+            ]
+        },
+        expertise: {
+            intro: "I help teams launch dependable platforms, smooth developer workflows, and keep performance in check.",
+            areas: [
+                {
+                    title: "Service Architecture",
+                    description: "Designing modular services, data models, and communication patterns.",
+                    icon: "fas fa-server"
+                },
+                {
+                    title: "Platform Engineering",
+                    description: "Automating CI/CD, infrastructure, and developer tooling.",
+                    icon: "fas fa-cubes"
+                },
+                {
+                    title: "Performance & Reliability",
+                    description: "Profiling hot paths and introducing safeguards that reduce incidents.",
+                    icon: "fas fa-chart-line"
+                }
+            ]
+        },
+        experience: [
+            {
+                role: "Backend Developer",
+                company: "Freelance",
+                timeframe: "2022 - Present",
+                description: "Builds APIs, data processing jobs, and integrations for fast-moving teams.",
+                achievements: [
+                    "Delivered REST and GraphQL services powering analytics and automation.",
+                    "Introduced observability with Prometheus/Grafana to cut mean time to detect by 40%."
+                ]
+            },
+            {
+                role: "Open Source Contributor",
+                company: "Community",
+                timeframe: "Ongoing",
+                description: "Maintains utilities that simplify deployments and infrastructure ops.",
+                achievements: [
+                    "Optimized Node.js services with caching and connection pooling improvements.",
+                    "Authored CI pipelines that reduced release friction for contributors."
+                ]
+            }
+        ],
+        competitive: {
+            summary: "I keep sharp by solving algorithmic problems weekly across major platforms.",
+            stats: [
+                { label: "Codeforces", value: "Specialist" },
+                { label: "CodeChef", value: "4-Star" },
+                { label: "LeetCode", value: "Top 10%" }
+            ],
+            profiles: [
+                { platform: "Codeforces", handle: "@handle", url: "#", icon: "fas fa-bolt" },
+                { platform: "CodeChef", handle: "@handle", url: "#", icon: "fas fa-trophy" },
+                { platform: "LeetCode", handle: "@handle", url: "#", icon: "fas fa-code" }
+            ]
         },
         github: {
             username: "yourusername",
@@ -47,31 +112,119 @@ function useDefaultConfig() {
 
 function initializeSite() {
     updatePersonalInfo();
+    updateAboutSection();
     renderTechStack();
+    renderExpertise();
+    renderExperience();
+    renderCompetitive();
     fetchGitHubProjects();
     setupEventListeners();
 }
 
 function updatePersonalInfo() {
-    // Update all instances of name
-    document.getElementById('nav-name').textContent = config.personal.name;
-    document.getElementById('hero-name').textContent = `Hi, I'm ${config.personal.name}`;
-    document.getElementById('footer-name').textContent = config.personal.name;
-    
-    // Update description
-    document.getElementById('hero-description').textContent = config.personal.description;
-    
-    // Update contact links
-    document.getElementById('github-link').href = `https://github.com/${config.personal.github}`;
-    document.getElementById('email-link').href = `mailto:${config.personal.email}`;
-    document.getElementById('linkedin-link').href = `https://linkedin.com/in/${config.personal.linkedin}`;
+    const personal = config.personal || {};
+
+    const navName = document.getElementById('nav-name');
+    if (navName && personal.name) {
+        navName.textContent = personal.name;
+    }
+
+    const heroName = document.getElementById('hero-name');
+    if (heroName && personal.name) {
+        heroName.textContent = `Hi, I'm ${personal.name}`;
+    }
+
+    const footerName = document.getElementById('footer-name');
+    if (footerName && personal.name) {
+        footerName.textContent = personal.name;
+    }
+
+    const heroRole = document.getElementById('hero-role');
+    if (heroRole) {
+        heroRole.textContent = personal.role || 'Backend Developer';
+    }
+
+    const heroDescription = document.getElementById('hero-description');
+    if (heroDescription && personal.description) {
+        heroDescription.textContent = personal.description;
+    }
+
+    const heroHighlightsContainer = document.getElementById('hero-highlights');
+    if (heroHighlightsContainer) {
+        const highlights = Array.isArray(personal.heroHighlights) ? personal.heroHighlights : [];
+        heroHighlightsContainer.innerHTML = '';
+
+        if (highlights.length > 0) {
+            heroHighlightsContainer.style.display = 'flex';
+            highlights.forEach(highlight => {
+                const highlightEl = document.createElement('span');
+                highlightEl.className = 'hero-highlight';
+                highlightEl.textContent = highlight;
+                heroHighlightsContainer.appendChild(highlightEl);
+            });
+        } else {
+            heroHighlightsContainer.style.display = 'none';
+        }
+    }
+
+    if (personal.name) {
+        const pageTitle = personal.role ? `${personal.name} | ${personal.role}` : `${personal.name} | Portfolio`;
+        document.title = pageTitle;
+    }
+
+    const githubLink = document.getElementById('github-link');
+    if (githubLink && personal.github) {
+        githubLink.href = `https://github.com/${personal.github}`;
+    }
+
+    const emailLink = document.getElementById('email-link');
+    if (emailLink && personal.email) {
+        emailLink.href = `mailto:${personal.email}`;
+    }
+
+    const linkedinLink = document.getElementById('linkedin-link');
+    if (linkedinLink && personal.linkedin) {
+        linkedinLink.href = `https://linkedin.com/in/${personal.linkedin}`;
+    }
+}
+
+function updateAboutSection() {
+    const about = config.about || {};
+
+    const aboutDescription = document.getElementById('about-description');
+    if (aboutDescription && about.description) {
+        aboutDescription.textContent = about.description;
+    }
+
+    const highlightsList = document.getElementById('about-highlights');
+    if (highlightsList) {
+        const highlightsWrapper = highlightsList.closest('.about-highlights');
+        const highlights = Array.isArray(about.highlights) ? about.highlights : [];
+        highlightsList.innerHTML = '';
+
+        if (highlights.length > 0) {
+            highlights.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                highlightsList.appendChild(li);
+            });
+            if (highlightsWrapper) {
+                highlightsWrapper.style.display = 'block';
+            }
+        } else if (highlightsWrapper) {
+            highlightsWrapper.style.display = 'none';
+        }
+    }
 }
 
 function renderTechStack() {
     const techStackContainer = document.getElementById('tech-stack');
+    if (!techStackContainer) return;
+
     techStackContainer.innerHTML = '';
+    const techStack = Array.isArray(config.techStack) ? config.techStack : [];
     
-    config.techStack.forEach(tech => {
+    techStack.forEach(tech => {
         const techItem = document.createElement('div');
         techItem.className = 'tech-item';
         techItem.innerHTML = `
@@ -80,6 +233,145 @@ function renderTechStack() {
         `;
         techStackContainer.appendChild(techItem);
     });
+}
+
+function renderExpertise() {
+    const expertiseSection = config.expertise || {};
+    const intro = document.getElementById('expertise-intro');
+    if (intro && expertiseSection.intro) {
+        intro.textContent = expertiseSection.intro;
+    }
+
+    const grid = document.getElementById('expertise-grid');
+    if (!grid) return;
+
+    const areas = Array.isArray(expertiseSection.areas) ? expertiseSection.areas : [];
+    if (areas.length === 0) {
+        return;
+    }
+
+    grid.innerHTML = '';
+    areas.forEach(area => {
+        const card = document.createElement('div');
+        card.className = 'expertise-card';
+        const iconMarkup = area.icon ? `<i class="${area.icon}"></i>` : '';
+        card.innerHTML = `
+            ${iconMarkup}
+            <h3>${area.title || 'Expertise'}</h3>
+            <p>${area.description || ''}</p>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function renderExperience() {
+    const timeline = document.getElementById('experience-timeline');
+    if (!timeline) return;
+
+    const experiences = Array.isArray(config.experience) ? config.experience : [];
+    if (experiences.length === 0) {
+        return;
+    }
+
+    timeline.innerHTML = '';
+    experiences.forEach(experience => {
+        const item = document.createElement('div');
+        item.className = 'experience-item';
+
+        const headingParts = [experience.role, experience.company].filter(Boolean);
+        const heading = headingParts.join(' &middot; ') || 'Experience';
+        const timeframe = experience.timeframe
+            ? `<span class="experience-date">${experience.timeframe}</span>`
+            : '';
+        const description = experience.description
+            ? `<p>${experience.description}</p>`
+            : '';
+
+        item.innerHTML = `
+            <div class="experience-header">
+                <h3>${heading}</h3>
+                ${timeframe}
+            </div>
+            ${description}
+        `;
+
+        if (Array.isArray(experience.achievements) && experience.achievements.length > 0) {
+            const list = document.createElement('ul');
+            experience.achievements.forEach(point => {
+                const listItem = document.createElement('li');
+                listItem.textContent = point;
+                list.appendChild(listItem);
+            });
+            item.appendChild(list);
+        }
+
+        timeline.appendChild(item);
+    });
+}
+
+function renderCompetitive() {
+    const competitive = config.competitive || {};
+
+    const summary = document.getElementById('competitive-summary');
+    if (summary && competitive.summary) {
+        summary.textContent = competitive.summary;
+    }
+
+    const statsContainer = document.getElementById('competitive-stats');
+    if (statsContainer) {
+        const stats = Array.isArray(competitive.stats) ? competitive.stats : [];
+        statsContainer.innerHTML = '';
+
+        if (stats.length > 0) {
+            statsContainer.style.display = 'grid';
+            stats.forEach(stat => {
+                if (!stat.label && !stat.value) return;
+                const statCard = document.createElement('div');
+                statCard.className = 'stat-card';
+                statCard.innerHTML = `
+                    <span class="stat-value">${stat.value || ''}</span>
+                    <span class="stat-label">${stat.label || ''}</span>
+                `;
+                statsContainer.appendChild(statCard);
+            });
+        } else {
+            statsContainer.style.display = 'none';
+        }
+    }
+
+    const profilesContainer = document.getElementById('competitive-grid');
+    if (profilesContainer) {
+        const profilesWrapper = profilesContainer.closest('.competitive-links');
+        const profiles = Array.isArray(competitive.profiles) ? competitive.profiles : [];
+        profilesContainer.innerHTML = '';
+
+        if (profiles.length > 0) {
+            profiles.forEach(profile => {
+                if (!profile.platform && !profile.handle) return;
+                const link = document.createElement('a');
+                link.className = 'competitive-card';
+                link.href = profile.url || '#';
+                if (profile.url) {
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                }
+                const iconMarkup = profile.icon ? `<i class="${profile.icon}"></i>` : '<i class="fas fa-code"></i>';
+                link.innerHTML = `
+                    ${iconMarkup}
+                    <div>
+                        <span class="platform">${profile.platform || ''}</span>
+                        <span class="handle">${profile.handle || ''}</span>
+                    </div>
+                `;
+                profilesContainer.appendChild(link);
+            });
+            if (profilesWrapper) {
+                profilesWrapper.style.display = 'block';
+            }
+        } else if (profilesWrapper) {
+            profilesWrapper.style.display = 'none';
+        }
+    }
 }
 
 async function fetchGitHubProjects() {

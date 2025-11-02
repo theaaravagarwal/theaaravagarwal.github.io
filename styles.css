@@ -101,6 +101,32 @@ body {
     animation: fadeInUp 1s ease 0.2s both;
 }
 
+.hero-role {
+    font-size: 1.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.25rem;
+    opacity: 0.95;
+}
+
+.hero-highlights {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+.hero-highlight {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -172,6 +198,43 @@ h2 {
     color: #6b7280;
 }
 
+.about-highlights {
+    margin-bottom: 2.5rem;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+}
+
+.about-highlights h3 {
+    font-size: 1.2rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.about-highlights ul {
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.about-highlights li {
+    position: relative;
+    padding-left: 1.75rem;
+    color: #4b5563;
+}
+
+.about-highlights li::before {
+    content: '';
+    position: absolute;
+    top: 0.6rem;
+    left: 0.5rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #2563eb;
+}
+
 .tech-stack h3 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
@@ -196,6 +259,239 @@ h2 {
 .tech-item:hover {
     border-color: #2563eb;
     transform: translateY(-2px);
+}
+
+.section-intro {
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.8;
+}
+
+/* Expertise Section */
+.expertise {
+    background: #f5f7ff;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.expertise-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.expertise-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(37, 99, 235, 0.12);
+}
+
+.expertise-card i {
+    font-size: 2rem;
+    color: #2563eb;
+    margin-bottom: 1.25rem;
+}
+
+.expertise-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+    color: #1f2937;
+}
+
+.expertise-card p {
+    color: #4b5563;
+    line-height: 1.7;
+}
+
+/* Experience Section */
+.experience {
+    background: white;
+}
+
+.experience-timeline {
+    display: grid;
+    gap: 2rem;
+}
+
+.experience-item {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid #e5e7eb;
+    position: relative;
+    padding-left: 2.75rem;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+    bottom: 2rem;
+    width: 4px;
+    background: linear-gradient(180deg, #2563eb 0%, #764ba2 100%);
+    border-radius: 999px;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.experience-header h3 {
+    font-size: 1.3rem;
+    color: #1f2937;
+}
+
+.experience-date {
+    font-weight: 500;
+    color: #2563eb;
+    background: rgba(37, 99, 235, 0.1);
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+}
+
+.experience-item p {
+    color: #4b5563;
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+}
+
+.experience-item ul {
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.experience-item li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: #4b5563;
+}
+
+.experience-item li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+}
+
+/* Competitive Section */
+.competitive {
+    background: #f9fafb;
+}
+
+.competitive-content {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+.competitive-summary p {
+    font-size: 1.1rem;
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.competitive-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(76, 106, 255, 0.08);
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 0.35rem;
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    color: #6b7280;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.competitive-links {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+    align-self: center;
+}
+
+.competitive-links h3 {
+    font-size: 1.2rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+.competitive-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.competitive-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    text-decoration: none;
+    color: #1f2937;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.competitive-card:hover {
+    transform: translateX(6px);
+    border-color: #2563eb;
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.12);
+    color: #1f2937;
+}
+
+.competitive-card i {
+    font-size: 1.5rem;
+    color: #2563eb;
+}
+
+.competitive-card .platform {
+    display: block;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.competitive-card .handle {
+    font-size: 0.95rem;
+    color: #6b7280;
 }
 
 .tech-item i {
@@ -410,6 +706,15 @@ footer {
     .hero p {
         font-size: 1rem;
     }
+
+    .hero-role {
+        font-size: 1.3rem;
+    }
+
+    .hero-highlights {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
     
     .hero-buttons {
         flex-direction: column;
@@ -432,6 +737,26 @@ footer {
     .tech-grid {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-item {
+        padding-left: 2rem;
+    }
+
+    .experience-item::before {
+        left: 0.75rem;
+    }
+
+    .competitive-content {
+        grid-template-columns: 1fr;
+    }
+
+    .competitive-links {
+        align-self: stretch;
+    }
 }
 
 @media (max-width: 480px) {
@@ -445,5 +770,23 @@ footer {
     
     h2 {
         font-size: 2rem;
+    }
+
+    .hero-role {
+        font-size: 1.15rem;
+    }
+
+    .hero-highlights {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .experience-item {
+        padding: 1.75rem;
+        padding-left: 2.25rem;
     }
 }

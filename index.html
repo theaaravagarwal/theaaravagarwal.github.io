@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+    <title>Backend Developer Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,7 +16,10 @@
             </div>
             <div class="nav-links">
                 <a href="#about">About</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#experience">Experience</a>
                 <a href="#projects">Projects</a>
+                <a href="#competitive">Competitive Programming</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
@@ -25,7 +28,13 @@
     <section class="hero">
         <div class="hero-content">
             <h1 id="hero-name">Hi, I'm Your Name</h1>
+            <p id="hero-role" class="hero-role">Backend Engineer & Competitive Programmer</p>
             <p id="hero-description">Developer passionate about creating cool projects in C++, Java, Python, JavaScript and more</p>
+            <div class="hero-highlights" id="hero-highlights">
+                <span class="hero-highlight">API Design</span>
+                <span class="hero-highlight">System Architecture</span>
+                <span class="hero-highlight">DevOps Automation</span>
+            </div>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -43,11 +52,128 @@
                         From systems programming in C++ to web development with JavaScript, I enjoy exploring 
                         different domains and creating solutions to interesting problems.
                     </p>
+                    <div class="about-highlights">
+                        <h3>How I add value</h3>
+                        <ul id="about-highlights">
+                            <li>Design fault-tolerant distributed services that power product roadmaps</li>
+                            <li>Build developer tooling that accelerates delivery and observability</li>
+                            <li>Solve complex algorithmic challenges to keep systems fast and efficient</li>
+                        </ul>
+                    </div>
                     <div class="tech-stack">
                         <h3>Technologies I work with:</h3>
                         <div class="tech-grid" id="tech-stack">
                             <!-- Tech stack will be populated from config -->
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="expertise">
+        <div class="container">
+            <h2>Backend Expertise</h2>
+            <p class="section-intro" id="expertise-intro">
+                I design resilient services, streamline developer workflows, and ship reliable features end to end.
+            </p>
+            <div class="expertise-grid" id="expertise-grid">
+                <div class="expertise-card">
+                    <i class="fas fa-server"></i>
+                    <h3>Service Architecture</h3>
+                    <p>Designing modular microservices, databases, and messaging pipelines that scale with demand.</p>
+                </div>
+                <div class="expertise-card">
+                    <i class="fas fa-cubes"></i>
+                    <h3>Platform Engineering</h3>
+                    <p>Delivering tooling, CI/CD, and observability stacks that keep teams productive and confident.</p>
+                </div>
+                <div class="expertise-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Performance Optimization</h3>
+                    <p>Profiling, tuning, and hardening systems so they remain fast, safe, and cost-effective.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>Recent Experience</h2>
+            <div class="experience-timeline" id="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Backend Developer &middot; Freelance</h3>
+                        <span class="experience-date">2022 - Present</span>
+                    </div>
+                    <p>Built and maintained distributed services, data processing pipelines, and API integrations for startups.</p>
+                    <ul>
+                        <li>Delivered REST and GraphQL APIs powering payments, analytics, and automation workflows.</li>
+                        <li>Implemented monitoring & alerting for critical services using Prometheus and Grafana.</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3>Open Source Contributor</h3>
+                        <span class="experience-date">Ongoing</span>
+                    </div>
+                    <p>Maintainer and contributor to libraries that support API clients, infrastructure automation, and DevOps tooling.</p>
+                    <ul>
+                        <li>Shipped performance fixes for high-traffic Node.js services, cutting latency by double digits.</li>
+                        <li>Authored CI/CD pipelines and deployment scripts to streamline release cycles.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="competitive" class="competitive">
+        <div class="container">
+            <h2>Competitive Programming</h2>
+            <div class="competitive-content">
+                <div class="competitive-summary">
+                    <p id="competitive-summary">
+                        I keep my problem-solving sharp by tackling algorithmic challenges across major platforms.
+                    </p>
+                    <div class="competitive-stats" id="competitive-stats">
+                        <div class="stat-card">
+                            <span class="stat-value">1800+</span>
+                            <span class="stat-label">Codeforces</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value">6-Star</span>
+                            <span class="stat-label">CodeChef</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-value">Top 5%</span>
+                            <span class="stat-label">LeetCode</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="competitive-links">
+                    <h3>Find me on:</h3>
+                    <div class="competitive-grid" id="competitive-grid">
+                        <a href="#" class="competitive-card">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <span class="platform">Codeforces</span>
+                                <span class="handle">@handle</span>
+                            </div>
+                        </a>
+                        <a href="#" class="competitive-card">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <span class="platform">CodeChef</span>
+                                <span class="handle">@handle</span>
+                            </div>
+                        </a>
+                        <a href="#" class="competitive-card">
+                            <i class="fas fa-code"></i>
+                            <div>
+                                <span class="platform">LeetCode</span>
+                                <span class="handle">@handle</span>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -99,7 +225,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 <span id="footer-name">Your Name</span>. Built with ❤️</p>
+            <p>&copy; 2024 <span id="footer-name">Your Name</span>. Built with &#10084;</p>
         </div>
     </footer>
 
